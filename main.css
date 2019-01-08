@@ -1,0 +1,526 @@
+/*
+ * Copyright (c) 2019 Richard L. McNeary II
+ *
+ * MIT License
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+html {
+    font-size: 10px;
+}
+
+@media only screen and (max-width: 500px){
+    html {
+        font-size: 9px;
+    }
+}
+
+body {
+    width: 100%;
+}
+
+h1 {
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-left: 1.5em;
+    padding-left: 0.5em;
+}
+
+span.icon {
+    font-size: 30px;
+}
+
+.content, .image-cell-info {
+    font-size: 10px; /* Restore the font size because it gets set to 0 by some containers. */
+}
+
+.description-container {
+    background-color: rgb(235, 235, 235);
+    border-radius: 0 0 3px 3px;
+    margin: 0 5px 0 5px;
+    padding: 60px 0 0 0;
+}
+
+@media only screen and (max-width: 500px){
+    .description-container {
+        border-radius: 0 0 0 0;
+        margin: initial;
+    }
+}
+
+.description, .content, .footer {
+    margin: 0 auto 0 auto;
+    max-width: 800px;
+    padding: 15px 10px;
+}
+
+@media only screen and (max-width: 500px){
+    .description, .content, .footer {
+        max-width: initial;
+    }
+}
+
+.description {
+    align-items: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 500px){
+    .description {
+        flex-direction: column;
+    }
+}
+
+.description-image-column {
+    height: 150px;
+    margin: 0 20px 0 0;
+    position: relative;
+    width: 150px;
+}
+
+@media only screen and (max-width: 500px){
+    .description-image-column {
+        margin: initial;
+        width: 100%;
+    }
+
+    .description-image-container {
+        text-align: center;
+        width: 100%;
+    }
+
+    .description-image {
+        margin: 0 auto;
+        min-width: 150px;
+        max-width: 250px;
+        width: 50%;
+    }
+}
+
+.description-image-column p {
+    flex: 1;
+}
+
+.description-image-container {
+    border-radius: 6px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.description-text {
+    margin: 0 0 0 20px;
+}
+
+.description p, .cell-information-item {
+    font-family: "Yrsa", serif;
+    font-size: 1.9em;
+    line-height: 1.2;
+}
+
+@media only screen and (max-width: 500px){
+    .description-text {
+        margin: 20px 0 0 0;
+        text-align: justify; 
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .description-text p {
+        font-size: 2.05em;
+    }
+}
+
+.detail-spacer {
+    align-items: flex-end;
+    display: flex;
+    flex: 30px;
+}
+
+#detail, p.detail {
+    font-size: 12pt;
+}
+
+.description-image-column .detail-spacer + .detail-spacer {
+    align-items: flex-start;
+}
+
+.content {
+    align-items: center;
+    display: none;
+}
+
+.content h2 , .content p, .image-cell-info-container, button.description {
+    font-family: "Karla", sans-serif;
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+.content h1 {
+    font-size: 2.6em;
+}
+
+.content h2 {
+    font-size: 2.1em;
+    font-style: italic;
+}
+
+.content p {
+    font-size: 1.8em;
+    letter-spacing: -0.5px;
+    line-height: 1.4;
+}
+
+.content p + p {
+    margin: 20px 0 0 0;
+}
+
+.content section + section {
+    margin: 30px 0 0 0;
+}
+
+.content h1 + h2 {
+    margin: -5px 0 2px 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer a:link, .footer a:visited {
+    color: rgb(235, 235, 235);
+}
+
+.footer a + a {
+    margin: 0 0 0 40px;
+}
+
+.menu-container {
+    background-color: white;
+    box-sizing: border-box;
+    height: 40px;
+    justify-content: flex-end;
+    left: 0;
+    opacity: 1;
+    padding: 0 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: transform 200ms ease-in-out, opacity 150ms 50ms ease-in-out;
+}
+
+.menu {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    margin: 0 auto 15px auto;
+    max-width: 800px;
+    padding: 0 10px;
+}
+
+@media only screen and (max-width: 500px){
+    .menu {
+        padding: 0;
+    }
+}
+
+.menu-container.hidden {
+    opacity: 0;
+    transform: translateY(-60px);
+}
+
+.menu-container a:link, .menu-container a:visited, .menu-container .item.text {
+    color: rgb(235, 235, 235);
+}
+
+.menu-container .item + .item {
+    margin: 0 0 0 20px;
+}
+
+.menu-container .item.text {
+    font-family: "Karla", sans-serif;
+    font-size: 12pt;
+    letter-spacing: -0.5px;
+}
+
+.menu-container .item:first-child {
+    color: black;
+    flex: 1;
+    font-size: 2.7em;
+}
+
+@media only screen and (max-width: 400px){
+    .menu-container .item:first-child {
+        font-size: 2.2em;
+    }
+}
+
+.menu-container .item:last-child {
+    color: black;
+    margin-left: 40px;
+}
+
+@media only screen and (max-width: 500px){
+    .menu a.item {
+        display: none;
+    }
+}
+
+.image-cell-container {
+    display: inline-block;
+    position: relative;
+}
+
+.image-collection-wrapper {
+    margin-top: 1px;
+    width: 100%;
+}
+
+#image-collection {
+    margin: 0 auto 0 auto;
+    min-height: 400px;
+    min-width: 800px;
+    width: 800px;
+}
+
+.image-cell::before {
+    border: solid rgb(235, 235, 235) 2px;
+    bottom: 0;
+    content: "";
+    left: 1px;
+    position: absolute;
+    right: 1px;
+    top: 0;
+}
+
+.image-cell:hover {
+    cursor: pointer;
+}
+
+/* Only doing this so that the img element is above the border created by image-cell::before. */
+.image-cell > img {
+    position: absolute;
+}
+
+.image-cell-info-overlay {
+    background-color: #FFFFFF00;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.image-cell-info-overlay:hover {
+    cursor: pointer;
+}
+
+.image-cell-info-overlay:hover > .image-cell-info-container {
+    opacity: 1;
+}
+
+/* .image-cell-info-container {
+    background-color: rgb(235, 235, 235);
+    bottom: 0;
+    display: block;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+} */
+.image-cell-info-container {
+    background-color: rgba(35, 35, 35, 0.8);
+    border-radius: 3px;
+    bottom: 3px;
+    display: block;
+    left: 3px;
+    margin: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    text-align: center;
+}
+
+.image-cell-info {
+    color: rgb(201, 200, 200);
+    padding: 0 25px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+p.image-cell-info {
+    font-size: 16px;
+}
+
+#hero-image-cell, .reverse-text {
+    background-color: rgb(235, 235, 235);
+    color: rgb(201, 200, 200);
+}
+
+.button-navigate {
+    height: 40px;
+    width: 150px;
+}
+
+.button-collection-h {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-collection-h > button:last-child {
+    margin-right: 0;
+}
+
+.button-collection-h > button {
+    border: 0;
+    border-radius: 3px;
+    display: block;
+    font-size: 160%;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+#hero-image-cell-modal {
+    background-color: rgba(53, 50, 48, 0.75);
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 20px 20px 20px 20px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+
+#hero-image-cell {
+    background-color: rgb(27, 25, 24);
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+#hero-image-cell-image-container {
+    box-sizing: border-box;
+    height: 100%;
+    padding-right: 370px;
+    position: relative;
+    width: 100%;
+}
+
+#hero-image-cell-image-container::after {
+    content: "";
+}
+
+#hero-image-cell-image-position {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+#img-hero {
+    max-height: 100%;
+    /* max-width: 600px; see #hero-image-cell-image-container, set px value for IE */
+    max-width: 100%;
+}
+
+.hero-image-cell-information-container {
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: 350px;
+}
+
+.hero-image-cell-information-container::after {
+    content: "";
+}
+
+.hero-image-cell-information-position {
+    bottom: 0;
+    left: 0;
+    padding: 60px 20px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#hero-image-cell-information-title {
+    font-size: 300%;
+    margin-bottom: 10px;
+}
+
+.cell-information-item {
+    margin-bottom: 10px;
+}
+
+.close {
+    background-color: rgb(235, 235, 235);
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 25%;
+}
+
+.close::after {
+    background-color: rgb(235, 235, 235);
+    content: "";
+    height: 25%;
+    margin-top: 50%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.close-container {
+    height: 25px;
+    overflow: hidden;
+    position: absolute;
+    right: 25px;
+    text-align: center;
+    top: 25px;
+    transform: rotate(45deg);
+    width: 25px;
+}
