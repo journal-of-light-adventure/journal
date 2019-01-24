@@ -786,6 +786,26 @@
         {
             date: "January 2019",
             description: [
+                "The beauty of the mountains. Can't wait to ski - tomorrow."
+            ],
+            size: [1920, 1280],
+            src: "resources/killington-2.jpg",
+            tags: ["rain", "ski", "vermont"],
+            title: "green mountains"
+        },
+        {
+            date: "January 2019",
+            description: [
+                "There'a no bad weather only bad gear, so hopefully you brought a tablet."
+            ],
+            size: [1920, 1280],
+            src: "resources/killington-1.jpg",
+            tags: ["rain", "ski", "vermont"],
+            title: "window view"
+        },
+        {
+            date: "January 2019",
+            description: [
                 "This is a keg tree and the High Falls seen from Genessee Brew House in Rochester NY. No need to leave the building it's all visible from the porch."
             ],
             size: [1920, 552],
