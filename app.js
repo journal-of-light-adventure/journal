@@ -786,7 +786,7 @@
         {
             date: "January 2019",
             description: [
-                "Vermont wildlife, seen in the parking lot. Luckily we opened the car door to be able to hear it calling."
+                "Vermont wildlife, seen in the parking lot. Luckily we opened the car door to be able to hear the Turkey calling."
             ],
             size: [1920, 1148],
             src: "resources/killington-turkey.jpg",
